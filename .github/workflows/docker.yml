@@ -26,7 +26,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t yourdockerhubusername/static-site:${{ github.sha }} .
+          docker build -t praszp246/static-site:${{ github.sha }} .
 
       - name: Push Docker image to Docker Hub
         run: |

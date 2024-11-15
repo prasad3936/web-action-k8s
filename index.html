@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prasad Zungare - DevOps Engineer Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Prasad ChandraKant Zungare</h1>
+        <p class="subtitle">
+          DevOps Engineer | Cloud Enthusiast | Automation Advocate
+        </p>
+        <p>
+          <a href="mailto:prasadcpatil246@gmail.com" class="contact-link"
+            >prasadcpatil246@gmail.com</a
+          >
+          |
+          <a
+            href="https://medium.com/@prasadcpatil246/"
+            target="_blank"
+            class="contact-link"
+            >Medium</a
+          >
+          |
+          <a
+            href="https://www.linkedin.com/in/prasad-zungare"
+            target="_blank"
+            class="contact-link"
+            >LinkedIn</a
+          >
+        </p>
+      </div>
+    </header>
+    <main>
+      <section id="hero">
+        <div class="hero-container">
+          <h2>Transforming Infrastructure. Automating Processes.</h2>
+          <p>
+            Helping businesses optimize their cloud and DevOps pipelines to
+            ensure high availability, scalability, and security.
+          </p>
+          <button onclick="scrollToSection('about')">Explore My Work</button>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I am passionate about leveraging my DevOps expertise to drive
+          efficiency, scalability, and innovation. With hands-on experience in
+          cloud infrastructure, CI/CD pipelines, and container orchestration, I
+          aim to empower teams to achieve their goals seamlessly.
+        </p>
+      </section>
+
+      <section id="skills">
+        <h2>Skills & Tools</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <img src="icons/aws.svg" alt="AWS Icon" />
+            <p>AWS</p>
+          </div>
+          <div class="skill-card">
+            <img src="icons/docker.svg" alt="Docker Icon" />
+            <p>Docker</p>
+          </div>
+          <div class="skill-card">
+            <img src="icons/kubernetes.svg" alt="Kubernetes Icon" />
+            <p>Kubernetes</p>
+          </div>
+          <div class="skill-card">
+            <img src="icons/terraform.svg" alt="Terraform Icon" />
+            <p>Terraform</p>
+          </div>
+          <div class="skill-card">
+            <img src="icons/ansible.svg" alt="Ansible Icon" />
+            <p>Ansible</p>
+          </div>
+          <div class="skill-card">
+            <img src="icons/python.svg" alt="Python Icon" />
+            <p>Python</p>
+          </div>
+          <div class="skill-card">
+            <img src="icons/ci-cd.svg" alt="CI/CD Icon" />
+            <p>CI/CD</p>
+          </div>
+          <div class="skill-card">
+            <img src="icons/linux.svg" alt="Linux Icon" />
+            <p>Linux</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+          <div class="experience-card">
+            <h3>Real IT Solutions Pvt Ltd</h3>
+            <p><strong>Role:</strong> Trainee DevOps Development Engineer</p>
+            <ul>
+              <li>
+                Optimized AWS VPC, subnets, and security groups for scalable
+                environments.
+              </li>
+              <li>
+                Deployed Docker-based microservices and managed RDS MySQL.
+              </li>
+              <li>Automated workflows and implemented monitoring tools.</li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <h3>Linuxworld Informatics Pvt Ltd</h3>
+            <p><strong>Role:</strong> Linux System Administration Intern</p>
+            <ul>
+              <li>
+                Designed secure server infrastructures and deployed HPC
+                clusters.
+              </li>
+              <li>Integrated Linux servers with cloud platforms.</li>
+              <li>
+                Applied best practices in Linux security and user management.
+              </li>
+            </ul>
+          </div>
+          <div class="experience-card">
+            <h3>Maxgen Technologies Pvt Ltd</h3>
+            <p><strong>Role:</strong> AWS Intern</p>
+            <ul>
+              <li>
+                Automated AWS provisioning with Terraform and CloudFormation.
+              </li>
+              <li>Deployed WordPress hosting on AWS services.</li>
+              <li>Monitored system performance using CloudWatch.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>Real-Time Linux Monitoring</h3>
+            <p>
+              A web app to monitor Linux server resources in real-time using
+              Flask and shell commands.
+            </p>
+          </div>
+          <div class="project-card">
+            <h3>End-to-End CI/CD Pipeline</h3>
+            <p>
+              Implemented a CI/CD pipeline for a Python-Flask app with Jenkins,
+              Docker, and Gitea actions.
+            </p>
+          </div>
+          <div class="project-card">
+            <h3>Containerized Python App</h3>
+            <p>
+              Deployed a Python app on Kubernetes, leveraging auto-scaling and
+              self-healing capabilities.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+          <li>RHCSA</li>
+          <li>AWS Cloud Practitioner</li>
+          <li>Linux Foundation Certified System Administrator</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>
+        © 2024 Prasad Zungare |
+        <a href="https://github.com/prasad3936" target="_blank">GitHub</a>
+      </p>
+    </footer>
+    <script>
+      function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>

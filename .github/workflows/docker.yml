@@ -30,7 +30,7 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push yourdockerhubusername/static-site:${{ github.sha }}
+          docker push praszp246/static-site:${{ github.sha }}
 
   deploy_to_minikube:
     needs: build_and_push
@@ -45,11 +45,11 @@ jobs:
 
       - name: Pull Docker image from Docker Hub inside Minikube
         run: |
-          docker pull yourdockerhubusername/static-site:${{ github.sha }}
+          docker pull praszp246/static-site:${{ github.sha }}
 
       - name: Deploy the image to Minikube
         run: |
-          kubectl create deployment static-site --image=yourdockerhubusername/static-site:${{ github.sha }}
+          kubectl create deployment static-site --image=praszp246/static-site:${{ github.sha }}
           kubectl expose deployment static-site --type=LoadBalancer --port=80
 
       - name: Wait for deployment to complete

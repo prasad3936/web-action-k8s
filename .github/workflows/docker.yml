@@ -36,22 +36,22 @@ jobs:
     needs: build_and_push
     runs-on: self-hosted
     steps:
-      - name: Set up Minikube Docker environment
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Configure Minikube Docker environment
         run: |
           & minikube -p minikube docker-env --shell powershell | Invoke-Expression
 
-      - name: Verify Docker configuration
-        run: docker info
-
-      - name: Pull Docker image from Docker Hub inside Minikube
+      - name: Replace Image Tag in Manifests
         run: |
-          docker pull praszp246/static-site:${{ github.sha }}
+          sed -i "s|\${IMAGE_TAG}|${{ github.sha }}|g" k8s/deployment.yaml
 
-      - name: Deploy the image to Minikube
+      - name: Apply Kubernetes Manifests
         run: |
-          kubectl apply deployment static-site --image=praszp246/static-site:${{ github.sha }}
-          kubectl expose deployment static-site --type=LoadBalancer --port=80
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
 
-      - name: Wait for deployment to complete
+      - name: Wait for Deployment to Complete
         run: |
           kubectl rollout status deployment/static-site

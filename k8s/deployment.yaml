@@ -13,7 +13,5 @@ spec:
         app: static-site
     spec:
       containers:
-        - name: static-site
-          image: <DOCKER_IMAGE>
-          ports:
-            - containerPort: 80
+      - name: static-site
+        image: praszp246/static-site:${IMAGE_TAG}

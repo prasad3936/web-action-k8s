@@ -45,8 +45,7 @@ jobs:
 
       - name: Replace Image Tag in Manifests
         run: |
-          sed -i "s|\${IMAGE_TAG}|${{ github.sha }}|g" k8s/deployment.yaml
-
+          (Get-Content k8s/deployment.yaml) -replace "\${IMAGE_TAG}", "${{ github.sha }}" | Set-Content k8s/deployment.yaml
       - name: Apply Kubernetes Manifests
         run: |
           kubectl apply -f k8s/deployment.yaml

@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
@@ -27,6 +30,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t praszp246/static-site:${{ github.sha }} .
+
       - name: Push Docker image to Docker Hub
         run: |
           docker push praszp246/static-site:${{ github.sha }}
@@ -39,14 +43,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure Minikube Docker environment
+        shell: pwsh
         run: |
-          & minikube -p minikube docker-env --shell powershell | Invoke-Expression
+          minikube -p minikube docker-env --shell powershell | Invoke-Expression
 
       - name: Update deployment file
         shell: pwsh
         run: |
           (Get-Content k8s/deployment.yaml) -replace '\${IMAGE_TAG}', '${{ github.sha }}' | Set-Content k8s/deployment.yaml
-
 
       - name: Commit and push updated deployment file
         run: |
@@ -56,9 +60,9 @@ jobs:
           git commit -m "Update image tag to ${{ github.sha }}"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Apply Kubernetes Manifests
+      - name: Apply Kubernetes manifests
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml

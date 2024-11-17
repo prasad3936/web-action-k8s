@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: static-site
-        image: praszp246/static-site:${IMAGE_TAG}
+        image: praszp246/static-site:8604ad7430d42ee5b9dbfe53c576187f723ab63a

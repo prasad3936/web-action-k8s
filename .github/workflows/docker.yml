@@ -43,9 +43,10 @@ jobs:
         run: |
           & minikube -p minikube docker-env --shell powershell | Invoke-Expression
 
-      - name: Replace Image Tag in Manifests
-        run: |
-          (Get-Content k8s/deployment.yaml) -replace "\${IMAGE_TAG}", "${{ github.sha }}" | Set-Content k8s/deployment.yaml
+      - name: Update deployment file
+        shell: bash
+        run: sed -i "s|\${IMAGE_TAG}|${{ github.sha }}|g" k8s/deployment.yaml
+
       - name: Apply Kubernetes Manifests
         run: |
           kubectl apply -f k8s/deployment.yaml

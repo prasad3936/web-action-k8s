@@ -43,8 +43,10 @@ jobs:
           & minikube -p minikube docker-env --shell powershell | Invoke-Expression
 
       - name: Update deployment file
-        shell: bash
-        run: sed -i "s|\${IMAGE_TAG}|${{ github.sha }}|g" k8s/deployment.yaml
+        shell: pwsh
+        run: |
+          (Get-Content k8s/deployment.yaml) -replace '\${IMAGE_TAG}', '${{ github.sha }}' | Set-Content k8s/deployment.yaml
+
 
       - name: Commit and push updated deployment file
         run: |
